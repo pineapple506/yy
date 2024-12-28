@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram - Мессенджер</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Скрытый контент -->
+    <div id="protected-content" style="display: none;">
+        <header>
+            <div class="container">
+                <div class="logo">
+                    <img src="images/logo.png" alt="Logo">
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#" onclick="showSection('description')" class="active">Описание</a></li>
+                        <li><a href="#" onclick="showSection('glossary')">Словарь</a></li>
+                        <li><a href="#" onclick="showSection('gallery')">Галерея</a></li>
+                        <li><a href="#" onclick="showSection('test')">Тест</a></li>
+                        <li><a href="#" onclick="showSection('profile')">Личный кабинет</a></li>
+                    </ul>
+                </nav>
+                <div id="user-info"></div>
+            </div>
+        </header>
+        <main>
+            <section id="description" class="section" style="display:block;">
+                <div class="container">
+                    <h2>Описание</h2>
+                    <p>Telegram — это бесплатный мессенджер, который позволяет пользователям обмениваться сообщениями,
+                        файлами, а также проводить голосовые и видеозвонки. Он отличается высоким уровнем безопасности и
+                        имеет множество дополнительных возможностей, включая боты, каналы и группы.</p>
+                </div>
+            </section>
+            <section id="glossary" class="section" style="display: none;">
+                <div class="container">
+                    <h2>Словарь</h2>
+                    <input type="text" id="search" placeholder="Поиск термина" oninput="searchGlossary()">
+                    <ul id="glossary-list">
+                        <li class="term" onclick="showTerm('Telegram')">Telegram</li>
+                        <li class="term" onclick="showTerm('Bot')">Bot</li>
+                        <li class="term" onclick="showTerm('Channel')">Channel</li>
+                        <li class="term" onclick="showTerm('Group')">Group</li>
+                        <li class="term" onclick="showTerm('Secret Chat')">Secret Chat</li>
+                        <li class="term" onclick="showTerm('Sticker')">Sticker</li>
+                        <li class="term" onclick="showTerm('Message')">Message</li>
+                        <li class="term" onclick="showTerm('Cloud Storage')">Cloud Storage</li>
+                        <li class="term" onclick="showTerm('Encryption')">Encryption</li>
+                        <li class="term" onclick="showTerm('Broadcast')">Broadcast</li>
+                    </ul>
+                    <div id="term-description" class="term-description">
+                        <p>Выберите термин для просмотра его описания.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="gallery" class="section" style="display: none;">
+                <div class="container">
+                    <h2>Галерея</h2>
+                    <div id="slider-wrapper">
+                        <div id="slider">
+                            <div class="slide">
+                                <img src="images/slide1.jpg" alt="Telegram Interface">
+                                <p>Интерфейс Telegram</p>
+                            </div>
+                            <div class="slide">
+                                <img src="images/slide2.jpg" alt="Telegram Bots">
+                                <p>Боты Telegram</p>
+                            </div>
+                            <div class="slide">
+                                <img src="images/slide3.jpg" alt="Telegram Stickers">
+                                <p>Стикеры в Telegram</p>
+                            </div>
+                            <div class="slide">
+                                <img src="images/slide4.jpg" alt="Telegram Calls">
+                                <p>Видеозвонки в Telegram</p>
+                            </div>
+                            <div class="slide">
+                                <img src="images/slide5.jpg" alt="Telegram Cloud">
+                                <p>Облачное хранилище Telegram</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="slider-controls">
+                        <button onclick="prevSlide()">« Назад</button>
+                        <button onclick="nextSlide()">Вперед »</button>
+                    </div>
+                    <p id="slide-number">1 из 5</p>
+                </div>
+            </section>
+            <section id="test" class="section" style="display: none; padding-bottom: 150px;">
+                <div class="container">
+                    <h2>Тест</h2>
+                    <form id="test-form">
+                        <div class="question">
+                            <p>1. Когда был основан Telegram?</p>
+                            <input type="text" id="q1">
+                            <div id="q1-result"></div>
+                            <div id="q1-feedback"></div>
+                        </div>
+                        <div class="question">
+                            <p>2. Как называется официальный бот Telegram для создания каналов?</p>
+                            <input type="text" id="q2">
+                            <div id="q2-result"></div>
+                            <div id="q2-feedback"></div>
+                        </div>
+                        <div class="question">
+                            <p>3. Telegram использует ... шифрование?</p>
+                            <label><input type="radio" name="q3" value="End-to-End"> End-to-End</label>
+                            <label><input type="radio" name="q3" value="AES"> AES</label>
+                            <div id="q3-result"></div>
+                            <div id="q3-feedback"></div>
+                        </div>
+                        <div class="question">
+                            <p>4. Какой язык программирования использован для разработки Telegram?</p>
+                            <select id="q4">
+                                <option value="C++">C++</option>
+                                <option value="Python">Python</option>
+                                <option value="Java">Java</option>
+                            </select>
+                            <div id="q4-result"></div>
+                            <div id="q4-feedback"></div>
+                        </div>
+                        <div class="question">
+                            <p>5. Кто является основателем Telegram?</p>
+                            <select id="q5">
+                                <option value="Павел Дуров">Павел Дуров</option>
+                                <option value="Илон Маск">Илон Маск</option>
+                                <option value="Билл Гейтс">Билл Гейтс</option>
+                            </select>
+                            <div id="q5-result"></div>
+                            <div id="q5-feedback"></div>
+                        </div>
+                        <div class="question">
+                            <p>6. Сколько миллионов активных пользователей Telegram имеет в 2024?</p>
+                            <input type="text" id="q6">
+                            <div id="q6-result"></div>
+                            <div id="q6-feedback"></div>
+                        </div>
+                        <button type="submit">Проверить ответы</button>
+                    </form>
+                    <div id="result"></div>
+                    <button id="restart-test" style="display: none;">Пройти тест снова</button>
+                </div>
+            </section>
+
+
+            <section id="profile" class="section" style="display: none;">
+                <div class="container">
+                    <h2>Личный кабинет</h2>
+
+                    <div id="profile-info">
+                        <p>Имя пользователя: <span id="user-login"></span></p>
+                        <p>Пол: <span id="user-gender"></span></p>
+                        <p>Возраст: <span id="user-age"></span></p>
+                        <p>Результат последнего теста: <span id="user-score"></span></p>
+                        <p>Правильных ответов: <span id="user-correct"></span></p>
+                        <p>Неправильных ответов: <span id="user-incorrect"></span></p>
+                    </div>
+                    <button id="logout-btn-profile2">Выйти</button>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <div class="container">
+                <p>Контактные данные:</p>
+                <ul>
+                    <li>Телефон: <a href="tel:+10000000000">+1 (000) 000-00-00</a></li>
+                    <li><a href="#">Социальные сети</a></li>
+                </ul>
+                <p>&copy; 2024 Telegram. Все права защищены.</p>
+            </div>
+        </footer>
+    </div>
+    <section id="auth-form" class="section">
+        <div class="container">
+            <h2>Авторизация</h2>
+            <form id="authForm" method="post">
+                <label for="login">Логин (4-10 символов):</label>
+                <input type="text" id="login" name="login">
+                <div id="login-error" class="error"></div>
+
+                <label for="birthDate">Дата рождения:</label>
+                <input type="date" id="birthDate" name="birthDate">
+                <div id="birthDate-error" class="error"></div>
+
+                <label>Пол:</label>
+                <div class="gender-group">
+                    <input type="radio" id="male" name="gender" value="male"> Мужской
+                    <input type="radio" id="female" name="gender" value="female"> Женский
+                </div>
+                <div id="gender-error" class="error"></div>
+
+                <button type="submit">Войти</button>
+            </form>
+        </div>
+    </section>
+    <script src="javascript.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,245 @@
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Заголовок */
+header {
+    background-color: #0088cc;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo img {
+    width: 50px;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+header nav ul li {
+    display: inline;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+header nav ul li a.active {
+    text-decoration: underline;
+}
+
+/* Формы ошибок */
+.error {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+/* Контент */
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+input,
+select,
+button {
+    padding: 10px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #0088cc;
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #006f8f;
+}
+
+/* Слайдер */
+#slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+#slider-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+#slider-wrapper {
+    overflow: hidden;
+    max-height: 500px;
+    margin-bottom: 20px;
+    /* Add margin to prevent overlap */
+
+}
+
+#slider .slide {
+    flex: 0 0 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* Размещение элементов в столбец */
+}
+
+#slider .slide .slide-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#slider .slide img {
+    width: 100%;
+    max-width: 900px;
+    max-height: 450px;
+    object-fit: contain;
+}
+
+#slider .slide p {
+    text-align: center;
+}
+
+/* Тест */
+#result {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+#result.correct {
+    color: green;
+}
+
+#result.incorrect {
+    color: red;
+}
+
+#test .question {
+    margin-bottom: 10px;
+}
+
+#test .question div {
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+#test .question div.correct {
+    color: green;
+}
+
+#test .question div.incorrect {
+    color: red;
+}
+
+#test .question input[type="radio"] {
+    width: auto;
+    margin-right: 5px;
+}
+
+#test .question label {
+    display: block;
+}
+
+/* Личный кабинет */
+#profile-info {
+    margin-top: 20px;
+}
+
+/* Подвал */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+    margin-top: auto;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+footer li {
+    margin: 5px 0;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+#authForm .gender-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+#authForm .gender-group input[type="radio"] {
+    width: auto;
+}
+
+section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#description .container {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.correct {
+    color: green;
+}
+
+.incorrect {
+    color: red;
+}
